@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+void add_v(){
+    int t;
+    char plate[15];
+    int timer;
+    char info[40];
+    printf("Do you want to rent parking space?(1 for yes or 0 for no)\n");
+    scanf("%d",&t);
+    if (t == 1){
+        printf("Enter Vechicle Plate : \n");
+        scanf("%s",plate);
+        printf("Enter Time in months : \n");
+        scanf("%d",&timer);
+        printf("Enter car name :\n");
+        scanf("%s",info);
+        //strcat(info,timer);
+        printf("REGISTRATION SUCCESFUL\n");
+        printf("%s(%s) is parked for %d months\n",info, plate,timer);
+        int money;
+        money= timer*500;
+        printf("You need to pay %d", money);
+        }
+   else{
+         exit(0);
+        }
+}
+int main(){
+    int flag = 0;
+    printf("\t\tPAID CAR PARKING\n");
+    char saved[5][11]={"MH12AA1111","MH12AA2222","MH12AA3333","MH12AA4444","MH12AA5555"};
+    char info[5][50]={"Swift(MH12AA1111) | remaining time - 13 days","Wagon R(MH12AA2222) | remaining time - 3 months ","Dezire(MH12AA3333) | remaining time - 4 months","Nano(MH12AA4444) | remaining time - 1 year","Brezza(MH12AA5555) | remaining time - 4 monhts"};
+    char input[20];
+    printf("Please Enter you plate\n");
+    scanf("%s",input );
+    int loop;
+    for(loop=0;loop<5;loop++)
+    {
+        if (strcmp(saved[loop],input) == 0){
+            printf("CAR FOUND\n");
+            printf("%s\n",info[loop]);
+            flag = 1;
+        }
+    }
+    if (flag!=1){
+        printf("NO SUCH NUMBER PLATE FOUND\n");
+            add_v();
+    }
+
+}
